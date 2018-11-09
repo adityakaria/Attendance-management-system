@@ -44,13 +44,14 @@ public class Student {
         return this.attendance;
     }
 
-    // Called when student present
+    // Called when student is present
     public float present() {
         this.totalLabs++;
         this.labsAttended++;
         this.attendance = (float)labsAttended / totalLabs;
         return this.attendance;
     }
+    // Called when student is absent
     public float absent() {
         this.totalLabs++;
         this.attendance = (float)labsAttended / totalLabs;
@@ -74,7 +75,7 @@ public class Student {
     public String toString() {
         System.out.println("RollNo  IDnumber    Name    contactNo   emailID");
 
-        return (String.valueOf(this.rollNo) + "    " + this.id + "  " + this.name + "    " + String.valueOf(this.getContactNumber()) + "  " + this.getEmailID() + "\n");
+        return (String.valueOf(this.rollNo) + "    " + this.id + "  " + this.name + "    " + String.valueOf(this.getContactNumber()) + "    " + this.getEmailID() + "\n");
     }
 
     public static void main(String[] args) {
