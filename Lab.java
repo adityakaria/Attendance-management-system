@@ -64,7 +64,7 @@ public class Time {
     
     public Time(int hours, int minutes, int seconds) {
         this.h = hours;
-        this.m = month;
+        this.m = minutes;
         this.s = seconds;
     }
 }
