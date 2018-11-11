@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.*;
+
 
 // class Lab:
 // 	Date of Lab
@@ -11,41 +13,55 @@ import java.util.ArrayList;
 
 
 class Lab {
-    Date date;
+    private Date date;
     ArrayList<String> TAs;
-    int minLabDuration; // in hours
+     private int minLabDuration; // in hours
     ArrayList<StudentInLab> studentsInLab; // the new student class for the Lab class
 
     public Lab(int day, int month, int year) {
         this.date = new Date(day, month, year);
         studentsInLab = new ArrayList<StudentInLab>();
     }
+    public void addMinLabDuration(int min){
+        this.minLabDuration=min;
+    }
 
     public void AddTA(String name) {
         this.TAs.add(name);
     }
+    public void studentsAttended(){
+        for (StudentInLab stud: studentsInLab){
+            System.out.print(stud.id);
+            System.out.print("\n");
+        }
+    }
 
-    public addStudent(int rollNo, String id, Time in, Time out) {
-        studentsInLab.add(new StudentInLab(rollNo, id, in, out));
+    public StudentInLab addStudent(int rollNo, String id, Time in, Time out) {
+      
+           StudentInLab temp = new StudentInLab(rollNo, id, in, out);
+             studentsInLab.add(temp);
+             return temp;
     }
 }
-
-public class StudentInLab {
+class StudentInLab {
     int rollNo;
     String id;
-    Time inTime;
-    Time outTime;
-    Student studentData;
+    private Time inTime;
+    private Time outTime;
+    private Student studentData;
 
     public StudentInLab(int rollNo, String id, Time inTime, Time outTime) {
-        this.rollNo = roll.no;
+        this.rollNo = rollNo;
         this.id = id;
         this.inTime = inTime;
         this.outTime = outTime;
+    
+    }
+    public void setReference(Student sref){
+        this.studentData=sref;
     }
 }
-
-public class Date {
+class Date {
     int d;
     int m;
     int y;
@@ -56,8 +72,7 @@ public class Date {
         this.y = year;
     }
 }
-
-public class Time {
+class Time {
     int h;
     int m;
     int s;

@@ -6,8 +6,9 @@ public class Student {
     private long contactNo;
     private String emailID;
     private int labsAttended;
-    private int totalLabs;
-    private float attendance;
+    int totalLabs;
+   // private float attendance;
+    //not required
     
     public Student(int roll_number, String student_id_number, String student_name, long contact_number , String email_ID) {
         this.rollNo = roll_number;
@@ -17,7 +18,7 @@ public class Student {
         this.emailID = email_ID;
         this.labsAttended = 0;
         this.totalLabs = 0;
-        this.attendance = 0;
+        //this.attendance = 0;
     }
 
     // for viewing editing contact number
@@ -41,32 +42,35 @@ public class Student {
         if (this.totalLabs == 0) {
             return 0;
         }
-        return this.attendance;
+
+        return (float)this.labsAttended/this.totalLabs;
     }
 
     // Called when student is present
-    public float present() {
+    public void present() {
         this.totalLabs++;
-        this.labsAttended++;
-        this.attendance = (float)labsAttended / totalLabs;
-        return this.attendance;
+        //this.labsAttended++;
+        //this.attendance = (float)labsAttended / totalLabs;
+        //return this.attendance;
     }
     // Called when student is absent
-    public float absent() {
-        this.totalLabs++;
-        this.attendance = (float)labsAttended / totalLabs;
-        return this.attendance;
-    }
+    // public float absent() {
+    //     this.totalLabs++;
+    //     //this.attendance = (float)labsAttended / totalLabs;
+        //return this.attendance;
+    //}
 
     // To check attendance
-    public void CheckAttendance() {
-        if (this.attendance < 75) {
-            System.out.println("WARNING: " + this.name + " has attendance shortage at " + String.valueOf(this.attendance));
+    public void CheckAttendance() {                                                             
+        float attendance=(float)this.labsAttended/ this.totalLabs;
+
+        if (attendance < 75) {
+            System.out.println("WARNING: " + this.name + " has attendance shortage at " + String.valueOf(attendance));
             // In case we require:
             // return 1; 
         }
         else {
-            System.out.println(this.name + " has sufficient attendance at " + String.valueOf(this.attendance));
+            System.out.println(this.name + " has sufficient attendance at " + String.valueOf(attendance));
 
             // return 0;
         }
@@ -78,20 +82,20 @@ public class Student {
         return (String.valueOf(this.rollNo) + "    " + this.id + "  " + this.name + "    " + String.valueOf(this.getContactNumber()) + "    " + this.getEmailID() + "\n");
     }
 
-    public static void main(String[] args) {
-        Student student1 = new Student(9, "17IT203", "student_name", 9876543210l, "student@student.com");
-        //debugging code
-        System.out.println(student1.name);
-        System.out.println(student1.rollNo);
-        System.out.println(student1.id);
-        System.out.println(student1.getContactNumber());
-        System.out.println(student1.getEmailID());
-        System.out.println(student1.getAttendance());
+    // public static void main(String[] args) {
+    //     Student student1 = new Student(9, "17IT203", "student_name", 9876543210l, "student@student.com");
+    //     //debugging code
+    //     System.out.println(student1.name);
+    //     System.out.println(student1.rollNo);
+    //     System.out.println(student1.id);
+    //     System.out.println(student1.getContactNumber());
+    //     System.out.println(student1.getEmailID());
+    //     System.out.println(student1.getAttendance());
 
-        student1.present();
-        System.out.println(student1.getAttendance());
+    //     student1.present();
+    //     System.out.println(student1.getAttendance());
         
-        student1.absent();
-        System.out.println(student1.getAttendance());
-    }
+    //     student1.absent();
+    //     System.out.println(student1.getAttendance());
+    // }
 }
