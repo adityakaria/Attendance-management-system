@@ -16,23 +16,23 @@ public class Batch {
     public Batch(String path) {
         try{
             File file=new File(path);
-        FileReader fr=new FileReader(file);
-        BufferedReader br=new BufferedReader(fr);
-        String line="";
-        String[] temparr,info;
-        line=br.readLine();
-        temparr=line.split(",");
-
-        this.classStrength = Integer.parseInt(temparr[2]);
-        this.branch = temparr[0];
-        this.Gradyear = Integer.parseInt(temparr[1]);
-        this.students = new Student[this.classStrength];
-        for(int i=0;i<this.classStrength;i++){
+            FileReader fr=new FileReader(file);
+            BufferedReader br=new BufferedReader(fr);
+            String line="";
+            String[] temparr,info;
             line=br.readLine();
-            info=line.split(",");
-            this.students[i] = new Student(Integer.parseInt(info[0]), info[1], info[2], Long.parseLong(info[3]), info[4]);
+            temparr=line.split(",");
 
-        }}
+            this.classStrength = Integer.parseInt(temparr[2]);
+            this.branch = temparr[0];
+            this.Gradyear = Integer.parseInt(temparr[1]);
+            this.students = new Student[this.classStrength];
+            for(int i=0;i<this.classStrength;i++){
+                line=br.readLine();
+                info=line.split(",");
+                this.students[i] = new Student(Integer.parseInt(info[0]), info[1], info[2], Long.parseLong(info[3]), info[4]);
+            }
+        }
         catch(IOException ex){
             ex.printStackTrace();
         }

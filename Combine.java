@@ -1,7 +1,5 @@
-
 import java.util.*;
 import java.io.File;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -9,14 +7,14 @@ import java.io.IOException;
 
 class Combine{
 	public static void main(String[] args) {
-		SupremeClass sc= new SupremeClass();
-		Batch B= sc.getBatch();
+		SupremeClass sc= new SupremeClass();		//What is SupremeClass?
+		Batch B= sc.getBatch();						//what is getBatch()?
 		for(Student stu:B.students){
-			stu.totalLabs++;
-		}
-		Student student;
+			stu.totalLabs++;						//isn't this is being done 2 times? Once when the present method is called.
+		}											//and once here.	
+		Student student;							//this can be removed
 		try {//for the lab
-			File file = new File("/home/tejaswini/POP_project/lab.csv");
+			File file = new File("lab.csv");
 			FileReader fr = new FileReader(file);
 			BufferedReader br = new BufferedReader(fr);
 			Student student1;

@@ -1,3 +1,13 @@
+// class Student:
+//               Roll No(UNIQUE ID)
+//               Name
+// 	Mob No
+// 	Email ID
+// 	No of days attended
+// 	No of labs held
+// 	% Attendance
+
+
 public class Student {
     public String id; // eg: 17IT203
     public int rollNo; //eg: 25
@@ -7,7 +17,7 @@ public class Student {
     private String emailID;
     private int labsAttended;
     int totalLabs;
-   // private float attendance;
+    // private float attendance;
     //not required
     
     public Student(int roll_number, String student_id_number, String student_name, long contact_number , String email_ID) {
@@ -40,7 +50,7 @@ public class Student {
     //for viewing student attendance
     public float getAttendance() {
         if (this.totalLabs == 0) {
-            return 0;
+            return 0;                                   //Have to return something else and not zero.
         }
 
         return (float)this.labsAttended/this.totalLabs;
@@ -49,11 +59,11 @@ public class Student {
     // Called when student is present
     public void present() {
         this.totalLabs++;
-        //this.labsAttended++;
+        //this.labsAttended++;                          //Why not increasing the labs attended here?
         //this.attendance = (float)labsAttended / totalLabs;
         //return this.attendance;
     }
-    // Called when student is absent
+    // Called when student is absent                    //Why commenting the absent part?
     // public float absent() {
     //     this.totalLabs++;
     //     //this.attendance = (float)labsAttended / totalLabs;
