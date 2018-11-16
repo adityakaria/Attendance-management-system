@@ -44,3 +44,14 @@ def upload_file():
 def uploaded_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'],
                                filename)
+
+# export FLASK_APP=hello.py
+# python -m flask run 
+# flask run --host=0.0.0.0
+
+# If you are on Windows, the environment variable syntax depends on command line interpreter. On Command Prompt:
+
+# C:\path\to\app>set FLASK_APP=hello.py
+# And on PowerShell:
+
+# PS C:\path\to\app> $env:FLASK_APP = "hello.py"
