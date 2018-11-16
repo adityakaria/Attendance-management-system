@@ -55,3 +55,5 @@ def uploaded_file(filename):
 # And on PowerShell:
 
 # PS C:\path\to\app> $env:FLASK_APP = "hello.py"
+
+# ifconfig | grep inet | tail -2 | head -1
