@@ -58,8 +58,8 @@ public class Student {
 
     // Called when student is present
     public void present() {
-        this.totalLabs++;
-        //this.labsAttended++;                          //Why not increasing the labs attended here?
+        //this.totalLabs++;
+        this.labsAttended++;                          //Why not increasing the labs attended here?
         //this.attendance = (float)labsAttended / totalLabs;
         //return this.attendance;
     }
@@ -84,6 +84,12 @@ public class Student {
 
             // return 0;
         }
+    }
+    public void setAttendence(int num){
+        this.labsAttended=num;
+    }
+    public int getAttendence(){
+        return this.labsAttended;
     }
 
     public String toString() {

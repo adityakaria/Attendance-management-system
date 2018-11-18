@@ -13,25 +13,37 @@ public class Batch {
     int Gradyear;
     Student[] students;
 
-    public Batch(String path) {
+    public Batch(String path1,String path2) {
         try{
-            File file=new File(path);
-            FileReader fr=new FileReader(file);
-            BufferedReader br=new BufferedReader(fr);
+        	int num=0,number;
+            File file1=new File(path1);
+            File file2=new File(path2);
+            FileReader fr1=new FileReader(file1);
+            FileReader fr2=new FileReader(file2);
+            BufferedReader br1=new BufferedReader(fr1);
+            BufferedReader br2=new BufferedReader(fr2);
             String line="";
             String[] temparr,info;
-            line=br.readLine();
+            line=br1.readLine();
             temparr=line.split(",");
 
             this.classStrength = Integer.parseInt(temparr[2]);
             this.branch = temparr[0];
             this.Gradyear = Integer.parseInt(temparr[1]);
             this.students = new Student[this.classStrength];
+            number=Integer.parseInt(br2.readLine());
+
             for(int i=0;i<this.classStrength;i++){
-                line=br.readLine();
+                line=br1.readLine();
                 info=line.split(",");
                 this.students[i] = new Student(Integer.parseInt(info[0]), info[1], info[2], Long.parseLong(info[3]), info[4]);
+                num=Integer.parseInt(br2.readLine());
+                this.students[i].setAttendence(num);
+                this.students[i].totalLabs=number;
             }
+        
+            br1.close();
+            br2.close();
         }
         catch(IOException ex){
             ex.printStackTrace();

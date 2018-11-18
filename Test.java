@@ -2,7 +2,7 @@ class SupremeClass{
 	private static Batch instance;
 	public static Batch getBatch(){
 		if(instance==null){
-			instance=new Batch("studentdetails.csv");
+			instance=new Batch("studentdetails.csv","attendence.csv");
 		}
 		return instance;
 	}
@@ -15,4 +15,8 @@ public static void main(String args[]){
 	Batch B=S.getBatch();
 
         System.out.println(B);
+
+        for(int i=0;i<B.classStrength;i++){
+        	System.out.println("roll number "+(i+1)+" attendence is "+B.students[i].labsAttended);
+        }
 }}
