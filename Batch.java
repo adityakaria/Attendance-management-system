@@ -41,7 +41,6 @@ public class Batch {
                 this.students[i].setAttendence(num);            //What's the use of this? Won't labsAttended be automatically incremented from calling the present() function?
                 this.students[i].totalLabs=number;
             }
-        
             br1.close();
             br2.close();
         }
