@@ -9,11 +9,11 @@ import java.io.IOException;
 
 class Combine{
 	public static void main(String[] args) {
-		SupremeClass sc= new SupremeClass();		//What is SupremeClass?
-		Batch B= sc.getBatch();						//what is getBatch()?
+		SupremeClass sc= new SupremeClass();		
+		Batch B= sc.getBatch();						
 		for(Student stu:B.students){
-			stu.totalLabs++;						//isn't this is being done 2 times? Once when the present method is called.
-		}											//and once here.	
+			stu.totalLabs++;						//isn't this is being done 2 times? Once when the present method is called and once here.
+		}												
 		Student student;							//this can be removed
 		try {//for the lab
 			File file = new File("lab.csv");

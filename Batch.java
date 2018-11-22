@@ -38,7 +38,7 @@ public class Batch {
                 info=line.split(",");
                 this.students[i] = new Student(Integer.parseInt(info[0]), info[1], info[2], Long.parseLong(info[3]), info[4]);
                 num=Integer.parseInt(br2.readLine());
-                this.students[i].setAttendence(num);
+                this.students[i].setAttendence(num);            //What's the use of this? Won't labsAttended be automatically incremented from calling the present() function?
                 this.students[i].totalLabs=number;
             }
         

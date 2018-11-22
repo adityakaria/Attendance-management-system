@@ -59,7 +59,7 @@ public class Student {
     // Called when student is present
     public void present() {
         //this.totalLabs++;
-        this.labsAttended++;                          //Why not increasing the labs attended here?
+        this.labsAttended++;                          
         //this.attendance = (float)labsAttended / totalLabs;
         //return this.attendance;
     }
