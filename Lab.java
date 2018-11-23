@@ -14,7 +14,7 @@ import java.util.*;
 
 class Lab {
     private Date date;
-    ArrayList<String> TAs;
+    //ArrayList<String> TAs;
     private int minLabDuration; 
     ArrayList<StudentInLab> studentsInLab; // the new student class for the Lab class
 
@@ -22,39 +22,40 @@ class Lab {
         this.date = new Date(day, month, year);
         studentsInLab = new ArrayList<StudentInLab>();
     }
+
     public void addMinLabDuration(int min){
         this.minLabDuration=min;
     }
 
-    public void AddTA(String name) {
-        this.TAs.add(name);
-    }
+    // public void AddTA(String name) {
+    //     this.TAs.add(name);
+    // }
+    
     public void studentsAttended(){
         for (StudentInLab stud: studentsInLab){
-            System.out.print(stud.id);  
-            System.out.print("\n");
+            System.out.println(stud.id + " " + stud.studentData.name);  
         }
     }
 
-    public StudentInLab addStudent( String id) {
-      
-           StudentInLab temp = new StudentInLab( id);
-             studentsInLab.add(temp);
-             return temp;
+    public StudentInLab addStudent(String id) {
+        StudentInLab temp = new StudentInLab(id);
+        studentsInLab.add(temp);
+        return temp;
     }
 }
 
-class StudentInLab {
+class StudentInLab{
     String id;
     //private Time inTime;
     //private Time outTime;
-    private Student studentData;
+    Student studentData;
 
     public StudentInLab( String id) {
         this.id = id;
        // this.inTime = inTime;
        // this.outTime = outTime;
     }
+    
     public void setReference(Student sref){
         this.studentData=sref;
     }
