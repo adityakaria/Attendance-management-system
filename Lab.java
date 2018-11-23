@@ -15,7 +15,7 @@ import java.util.*;
 class Lab {
     private Date date;
     ArrayList<String> TAs;
-    private int minLabDuration; // in hours   Better to set in minutes
+    private int minLabDuration; 
     ArrayList<StudentInLab> studentsInLab; // the new student class for the Lab class
 
     public Lab(int day, int month, int year) {
@@ -36,26 +36,24 @@ class Lab {
         }
     }
 
-    public StudentInLab addStudent(int rollNo, String id, Time in, Time out) {
+    public StudentInLab addStudent( String id) {
       
-           StudentInLab temp = new StudentInLab(rollNo, id, in, out);
+           StudentInLab temp = new StudentInLab( id);
              studentsInLab.add(temp);
              return temp;
     }
 }
 
 class StudentInLab {
-    int rollNo;
     String id;
-    private Time inTime;
-    private Time outTime;
+    //private Time inTime;
+    //private Time outTime;
     private Student studentData;
 
-    public StudentInLab(int rollNo, String id, Time inTime, Time outTime) {
-        this.rollNo = rollNo;
+    public StudentInLab( String id) {
         this.id = id;
-        this.inTime = inTime;
-        this.outTime = outTime;
+       // this.inTime = inTime;
+       // this.outTime = outTime;
     }
     public void setReference(Student sref){
         this.studentData=sref;
@@ -73,7 +71,7 @@ class Date {
         this.y = year;
     }
 }
-class Time {
+/*class Time {
     int h;
     int m;
     int s;
@@ -84,3 +82,4 @@ class Time {
         this.s = seconds;
     }
 }
+*/

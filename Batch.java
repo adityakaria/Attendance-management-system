@@ -38,8 +38,8 @@ public class Batch {
                 info=line.split(",");
                 this.students[i] = new Student(Integer.parseInt(info[0]), info[1], info[2], Long.parseLong(info[3]), info[4]);
                 num=Integer.parseInt(br2.readLine());
-                this.students[i].setAttendence(num);            //What's the use of this? Won't labsAttended be automatically incremented from calling the present() function?
-                this.students[i].totalLabs=number;
+                this.students[i].setAttendence(num);            //we are setting the number of labs attended by each student till the previous lab
+                this.students[i].totalLabs=number;              //we are setting the number of labs conducted
             }
             br1.close();
             br2.close();
@@ -49,21 +49,6 @@ public class Batch {
         }
     }
 
-    // Add details of all students of the class based on the class Strength
-    //public void setStudentDetails() 
-        //System.out.println("Please Enter the student details...(tab separated)");
-        //System.out.println("RollNo  IDnumber    Name    ContactNo   EmailID");
-
-        //for (int i = 0; i < this.classStrength; i++) {
-            //Scanner in = new Scanner(System.in);
-            //String[] info = in.nextLine().split(" ");
-            //students[i] = new Student(Integer.parseInt(info[0]), info[1], info[2], Long.parseLong(info[3]), info[4]);
-        
-
-        //System.out.println("");
-    
-
-    // default printable method
     public String toString() {
         String info = "\n";
         System.out.println("RollNo  IDnumber    Name    contactNo   emailID");
@@ -86,22 +71,3 @@ public class Batch {
         return null;
     }
 }
-//     public static void main(String[] args) {
-//         Scanner in = new Scanner(System.in);
-        
-//         System.out.println("Please enter the following details: (tab separated)");
-//         System.out.println("Batch department    year    Class Strength");
-//         String[] batch = in.nextLine().split(" ");
-
-//         Batch b1 = new Batch(batch[0], Integer.parseInt(batch[1]), Integer.parseInt(batch[2]));
-        
-//         b1.setStudentDetails();
-//         System.out.println(b1);
-//     }
-
-// }
-
-// 1 17IT201 abc 1092348798 khfas@jaldsf.co
-// 2 7ybad adusih 3128423412 sjdkahf@asfidh.com
-// 3 fh9dj ajdhfa 9812749380 adusfi@daf.com
-// 4 aip3 ishdfa 9108473138 akhsf@adf.com

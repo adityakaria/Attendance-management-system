@@ -58,17 +58,11 @@ public class Student {
 
     // Called when student is present
     public void present() {
-        //this.totalLabs++;
         this.labsAttended++;                          
-        //this.attendance = (float)labsAttended / totalLabs;
-        //return this.attendance;
+        
     }
-    // Called when student is absent                    //Why commenting the absent part?
-    // public float absent() {
-    //     this.totalLabs++;
-    //     //this.attendance = (float)labsAttended / totalLabs;
-        //return this.attendance;
-    //}
+    
+    
 
     // To check attendance
     public void CheckAttendance() {                                                             
@@ -98,20 +92,6 @@ public class Student {
         return (String.valueOf(this.rollNo) + "    " + this.id + "  " + this.name + "    " + String.valueOf(this.getContactNumber()) + "    " + this.getEmailID() + "\n");
     }
 
-    // public static void main(String[] args) {
-    //     Student student1 = new Student(9, "17IT203", "student_name", 9876543210l, "student@student.com");
-    //     //debugging code
-    //     System.out.println(student1.name);
-    //     System.out.println(student1.rollNo);
-    //     System.out.println(student1.id);
-    //     System.out.println(student1.getContactNumber());
-    //     System.out.println(student1.getEmailID());
-    //     System.out.println(student1.getAttendance());
-
-    //     student1.present();
-    //     System.out.println(student1.getAttendance());
-        
-    //     student1.absent();
-    //     System.out.println(student1.getAttendance());
-    // }
+   
+    
 }
