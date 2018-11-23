@@ -27,7 +27,6 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".PictureBarcodeActivity" />
         <activity android:name=".ScannedBarcodeActivity" />
         <activity
             android:name=".EmailActivity"

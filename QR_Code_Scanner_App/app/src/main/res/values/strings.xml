@@ -1,7 +1,9 @@
 <resources>
-    <string name="app_name">BarcodeVisionAPI</string>
+    <string name="app_name">QRcodeScanner</string>
     <string name="take_barcode_picture">Take Barcode Picture</string>
     <string name="scan_barcode">Scan Barcode</string>
     <string name="open_camera">OPEN CAMERA</string>
     <string name="send_email">SEND EMAIL</string>
+    <string name="date">Date</string>
+    <string name="lab_duration">Lab Duration</string>
 </resources>
