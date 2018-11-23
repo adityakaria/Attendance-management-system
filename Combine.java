@@ -26,7 +26,7 @@ class Combine{
 
 			String[] tempArr;
 			line= br.readLine();
-			tempArr=line.split("/");
+			tempArr=line.split("-");
 			Lab thislab = new Lab(Integer.parseInt(tempArr[0]),Integer.parseInt(tempArr[1]),Integer.parseInt(tempArr[2]));
 			line= br.readLine();
 			tempArr=line.split(" ");
