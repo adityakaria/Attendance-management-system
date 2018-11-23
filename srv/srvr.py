@@ -33,10 +33,14 @@ def upload_file():
     return '''
     <!doctype html>
     <title>Upload new File</title>
-    <h1>Upload new File</h1>
+    <h1>Upload new File </h1>
     <form method=post enctype=multipart/form-data>
+    <div>
       <input type=file name=file>
+      </div>
+      <div>
       <input type=submit value=Upload>
+      </div>
     </form>
     '''
 
