@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //            startActivity(i);
 //                                    File file = new File(dir, "student_data.txt");
             File file = new File("/storage/sdcard0/Download", mLab_Date.getText().toString() + ".csv");
-            Toast.makeText(getApplicationContext(), "File ready", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), mLab_Date.getText().toString() + ".csv", Toast.LENGTH_SHORT).show();
 
             FileOutputStream stream = new FileOutputStream(file, true);
 
