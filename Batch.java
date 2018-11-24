@@ -38,8 +38,8 @@ public class Batch {
                 info=line.split(",");
                 this.students[i] = new Student(Integer.parseInt(info[0]), info[1], info[2], Long.parseLong(info[3]), info[4]);
                 num=Integer.parseInt(br2.readLine());
-                this.students[i].setAttendence(num);            //we are setting the number of labs attended by each student till the previous lab
-                this.students[i].totalLabs=number;              //we are setting the number of labs conducted
+                this.students[i].setAttendence(num);
+                this.students[i].totalLabs=number;
             }
             br1.close();
             br2.close();
@@ -49,24 +49,21 @@ public class Batch {
         }
     }
 
-    public String toString() {              //Never used yet.
+    public String toString() {
         String info = "\n";
-        System.out.println("RollNo  IDnumber    Name    contactNo   emailID");
-        
+        System.out.printf("%-8s | %-10s | %-15s | %-15s | %-25s\n","Roll No.", "ID Number", "Name", "Contact Number","Email ID");
+        System.out.printf("------------------------------------------------------------------------------------\n");
         for (int i = 0; i < this.classStrength; i++) {
-            info += (String.valueOf(students[i].rollNo) + "    " + students[i].id + "   " + students[i].name + "    " + String.valueOf(students[i].getContactNumber()) + "   " + students[i].getEmailID() + "\n");
+            System.out.printf("%5d     | %-10s | %-15s | %-15d | %-25s\n", students[i].rollNo, students[i].id, students[i].name, students[i].getContactNumber(), students[i].getEmailID());
         }
-        return info;
+        return " ";
     }
     
-
-
     public Student getStudentById(String id){
         for(int i=0;i<this.classStrength;i++){
             if(id.equals(this.students[i].id)){
                 return this.students[i];
             }
-
         }
         return null;
     }
