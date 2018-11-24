@@ -16,7 +16,7 @@ class Combine{
 	}
 
 	//Updating attendance of each of the student who attended the lab, and incrementing the total labs attended.
-	public void updateAttendace(){
+	public static void updateAttendace(){
 		for(Student stu:B.students){
 			stu.totalLabs++;					//Incrementing the total labs held for each student, whenever a lab is held.
 		}
@@ -68,7 +68,18 @@ class Combine{
 	}
 
 	//Printing  the details of the students who attended the lab today. We will later create a function to do this, whenever it is called.
-	public void studentsAttend(){
+	public static void studentsAttend(){
+		System.out.println("Enter Date(dd-mm-yy) for which the attendance has to be updated: ");
+		BufferedReader kIP = new BufferedReader(new InputStreamReader(System.in));
+		String dt;
+		dt = kIP.readLine();
+		File file = new File( "./srv/files", dt + ".csv");
+		FileReader fr = new FileReader(file);
+		BufferedReader br = new BufferedReader(fr);
+		String[] tempArr;
+		line= br.readLine();
+		tempArr=line.split("-");
+			
 		System.out.println("The list of students who attended the lab today is:");
 		thislab.studentsAttended();
 	}
