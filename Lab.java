@@ -27,6 +27,10 @@ class Lab {
         this.minLabDuration=min;
     }
 
+    public int getminLabDuration(){
+        return this.minLabDuration;
+    }
+
     // public void AddTA(String name) {
     //     this.TAs.add(name);
     // }
