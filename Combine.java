@@ -11,11 +11,15 @@ import java.io.*;
 class Combine{
 	public static void main(String[] args) throws IOException{
 		SupremeClass sc= new SupremeClass();		
-		Batch B= sc.getBatch();						
+		Batch B= SupremeClass.getBatch();						
+		updateAttendace();												
+	}
+
+	//Updating attendance of each of the student who attended the lab, and incrementing the total labs attended.
+	public void updateAttendace(){
 		for(Student stu:B.students){
 			stu.totalLabs++;					//Incrementing the total labs held for each student, whenever a lab is held.
-		}												
-		
+		}
 		try {
 			System.out.println("Enter Date(dd-mm-yy) for which the attendance has to be updated: ");
 			BufferedReader kIP = new BufferedReader(new InputStreamReader(System.in));
@@ -29,7 +33,6 @@ class Combine{
 			StudentInLab stud;
 			String[] tempArr;
 			
-			//Updating attendance of each of the student who attended the lab.
 			line= br.readLine();
 			tempArr=line.split("-");
 			Lab thislab = new Lab(Integer.parseInt(tempArr[0]),Integer.parseInt(tempArr[1]),Integer.parseInt(tempArr[2]));
@@ -43,30 +46,30 @@ class Combine{
 				stud.setReference(student1);
 				student1.present();
 			}
+			br.close();
 
 			//Saving the new attendance of each of the student in the file attendance.csv
 			try{
-				File file1=new File("attendence.csv"); 
 				PrintWriter pw=new PrintWriter("attendence.csv","UTF-8");
 				pw.println(String.valueOf(B.students[0].totalLabs));
 				for(int i=0;i<B.classStrength;i++){
 					pw.println(String.valueOf(B.students[i].getAttendence()));
 				}	
 				pw.close();
+				studentsAttend();
 			}
 			catch(IOException e){
 				e.printStackTrace();
 			}
-			
-			//Printing  the details of the students who attended the lab today. We will later create a function to do this, whenever it is called.
-			System.out.println("The list of students who attended the lab today is:");
-			thislab.studentsAttended();
-			
-			br.close();
 		}
-		
 		catch (IOException ex) {
 			ex.printStackTrace();
 		}
+	}
+
+	//Printing  the details of the students who attended the lab today. We will later create a function to do this, whenever it is called.
+	public void studentsAttend(){
+		System.out.println("The list of students who attended the lab today is:");
+		thislab.studentsAttended();
 	}
 }
