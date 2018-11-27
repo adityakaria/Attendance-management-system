@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     TextView Date_Prompt, textView2;
     EditText mLab_Date, mLab_Duration;
     String finalString;
-    String temp;
 
 
     @Override
@@ -50,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //            startActivity(i);
 //                                    File file = new File(dir, "student_data.txt");
             File file = new File("/storage/sdcard0/Download", mLab_Date.getText().toString() + ".csv");
-            Toast.makeText(getApplicationContext(), mLab_Date.getText().toString() + ".csv", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "FileName: " + mLab_Date.getText().toString() + ".csv", Toast.LENGTH_SHORT).show();
 
             FileOutputStream stream = new FileOutputStream(file, true);
 
@@ -59,7 +58,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 finalString = mLab_Date.getText().toString() + '\n' + mLab_Duration.getText().toString() + " " + "hrs" + '\n';
                 Toast.makeText(getApplicationContext(), finalString, Toast.LENGTH_SHORT).show();
                 stream.write(finalString.getBytes());
-                Toast.makeText(getApplicationContext(), "-----writing------", Toast.LENGTH_SHORT).show();
             } finally {
                 stream.close();
             }
@@ -79,7 +77,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 Intent i = new Intent(MainActivity.this, ScannedBarcodeActivity.class);
 
-                Toast.makeText(getApplicationContext(), temp, Toast.LENGTH_SHORT).show();
                 i.putExtra("fileName", (mLab_Date.getText().toString() + ".csv"));
                 startActivity(i);
 //                startActivity(new Intent(MainActivity.this, ScannedBarcodeActivity.class));

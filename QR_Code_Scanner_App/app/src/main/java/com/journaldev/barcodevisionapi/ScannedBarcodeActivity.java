@@ -12,6 +12,7 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.content.Intent;
@@ -38,6 +39,7 @@ public class ScannedBarcodeActivity extends AppCompatActivity {
     String intentData = "";
     int isEmail = 0;
     String filename;
+    EditText IPaddress;
 
 
 
@@ -74,7 +76,8 @@ public class ScannedBarcodeActivity extends AppCompatActivity {
                         startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(intentData)));
                     }
                     else if (isEmail == 2) {
-                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(intentData)));
+                        IPaddress = findViewById(R.id.IPAddress);
+                        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://" + IPaddress.getText().toString())));
                     }
                     }
 
@@ -145,29 +148,25 @@ public class ScannedBarcodeActivity extends AppCompatActivity {
                             txtBarcodeValue.setText(intentData);
                             isEmail = 0;
                             btnAction.setText("ADD CONTENT TO THE MAIL");
-                            Toast.makeText(getApplicationContext(), "in mailing case", Toast.LENGTH_SHORT).show();
                         } else if (barcodes.valueAt(0).url != null) {
                             isEmail = 1;
                             btnAction.setText("LAUNCH URL");
                             intentData = barcodes.valueAt(0).displayValue;
                             txtBarcodeValue.setText(intentData);
-                            Toast.makeText(getApplicationContext(), "in url case", Toast.LENGTH_SHORT).show();
                             Toast.makeText(getApplicationContext(), intentData, Toast.LENGTH_SHORT).show();
                         } else {
 //                                File path = ScannedBarcodeActivity.this.getFilesDir();
 //                                File dir = new File("//sdcard//Download//");
 //                                File dir = new File("/storage/sdcard0/Download");
                             isEmail = 2;
-                            btnAction.setText("Mark attendance");
+                            btnAction.setText("Upload Attendance File");
                             intentData = barcodes.valueAt(0).displayValue;
                             txtBarcodeValue.setText(intentData);
-                            Toast.makeText(getApplicationContext(), intentData, Toast.LENGTH_SHORT).show();
 
                             try {
 
 //                                    File file = new File(dir, "student_data.txt");
                                 File file = new File("/storage/sdcard0/Download", filename);
-                                Toast.makeText(getApplicationContext(), "New file: " + filename, Toast.LENGTH_SHORT).show();
 
                                 FileOutputStream stream = new FileOutputStream(file, true);
 
@@ -175,7 +174,13 @@ public class ScannedBarcodeActivity extends AppCompatActivity {
                                     // PrintStream printstream = new PrintStream(stream);
                                     // printstream.print(intentData + "\n");
                                     String[] IData = intentData.split("\\r?\\n");
-                                    String finalString = IData[1] + '\n';
+                                    String finalString = "";
+                                    for (int i = 6; i <= 13; i++) {
+                                        finalString += IData[1].charAt(i);
+                                    }
+
+
+//                                    String finalString = IData[1] + '\n';
 //                                    if (finalString.charAt(11) == '1') {
 //                                        int roll = (Character.getNumericValue(finalString.charAt(12)) * 10) + Character.getNumericValue(finalString.charAt(13));
 //                                    }
@@ -184,16 +189,16 @@ public class ScannedBarcodeActivity extends AppCompatActivity {
 //                                    }
 
                                     Toast.makeText(getApplicationContext(), finalString, Toast.LENGTH_SHORT).show();
+                                    finalString += "\n";
                                     stream.write(finalString.getBytes());
-                                    Toast.makeText(getApplicationContext(), "-----writing------", Toast.LENGTH_SHORT).show();
                                 } finally {
                                     stream.close();
                                 }
                             } catch (FileNotFoundException e) {
-                                Toast.makeText(getApplicationContext(), "FileNotFoundException", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "ERROR: File Not Found", Toast.LENGTH_SHORT).show();
                                 e.printStackTrace();
                             } catch (IOException e) {
-                                Toast.makeText(getApplicationContext(), "IOException", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "ERROR: IO Exception", Toast.LENGTH_SHORT).show();
                                 e.printStackTrace();
                             } catch (Exception e) {
                                 Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
