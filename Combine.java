@@ -19,6 +19,7 @@ class Combine{
 			System.out.println("Press 1 for updating the attendance of a particular lab.");
 			System.out.println("Press 2 to view the details of a particular lab.");
 			System.out.println("Press 3 to get the student details of the batch.");
+			System.out.println("Press 4 to check the attendance of a particular student.");
 			System.out.println("Press 0 to quit.");
 			c=read.next().charAt(0);
 			switch(c){
@@ -30,6 +31,9 @@ class Combine{
 					break;
 				case '3':
 					BatchDetails();
+					break;
+				case '4':
+					StudentDetails();
 					break;
 				case '0':
 					System.out.println("Thanks! Have a great day ahead.");
@@ -140,5 +144,15 @@ class Combine{
 	public static void BatchDetails() throws IOException {	
 		Batch batch= SupremeClass.getBatch();
 		System.out.println(batch);
+	}
+
+	public static void StudentDetails() throw IOException{
+		Batch ba = SupremeClass.getBatch();
+		System.out.println("Enter the roll number of the student to check his/her attendance: ")
+		Scanner read = new Scanner(System.in);
+		String IdNO;
+		IdNO = read.nextLine();
+		Student s = ba.getStudentById(IdNO);
+		s.CheckAttendance();			
 	}
 }

@@ -60,7 +60,7 @@ public class Student {
     }
 
     // To check attendance
-    public void CheckAttendance() {                                      // Not used anywhere yet.
+    public void CheckAttendance() {                                     
         float attendance=(float)this.labsAttended/ this.totalLabs;
 
         if (attendance < 75) {
