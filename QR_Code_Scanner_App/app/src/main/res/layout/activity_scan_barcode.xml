@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/activity_horizontal_margin">
@@ -46,7 +47,7 @@
         android:layout_marginBottom="28dp"
         android:ems="10"
         android:inputType="textUri"
-        android:text="Server IP"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        tools:text="Server IP Addess" />
 
 </RelativeLayout>
